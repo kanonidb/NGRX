@@ -5,10 +5,8 @@ import {MaterialModule} from '../../globalfeed/modules/material/material.module'
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../states/app.state';
-import {selectCount} from '../../states/counterstate/counter.selector';
 import {AsyncPipe} from '@angular/common';
 import { decrement, increment, reset } from '../../states/counterstate/counter.actions';
 

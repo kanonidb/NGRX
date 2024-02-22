@@ -13,6 +13,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideState, provideStore } from '@ngrx/store'
 import { provideEffects } from '@ngrx/effects'
 import { counterReducer } from './states/counterstate/counter.reducer'
+import { cardReducer } from './states/card-state/card.reducer'
 @Injectable({providedIn: 'root'})
 export class TemplatePageTitleStrategy extends TitleStrategy {
   constructor(private readonly title: Title) {
@@ -31,7 +32,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), provideAnimationsAsync(),
     {provide: TitleStrategy, useClass: TemplatePageTitleStrategy},
      provideHttpClient(withInterceptors([tokenInterceptorInterceptor])), 
-     provideAnimationsAsync(), provideStore(), provideEffects(),
-     provideState({name: 'counter', reducer: counterReducer})
+     provideStore(), provideEffects(),
+     provideState({name: 'counter', reducer: counterReducer}),
+     provideState({name: 'card', reducer: cardReducer})
   ],
 }

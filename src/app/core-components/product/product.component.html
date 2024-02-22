@@ -1,0 +1,56 @@
+<div class="pt-8 pb-8 pl-10 " style="text-align: center !important;">
+<div class="grid sm:grid-cols-1 md:grid-cols-3  gap-5">
+    @for (item of allProductsList$|async ; track item.id ) {
+    <product-card [product]="item" (handelAdd)="addItemToCard($event)"/>
+    } @empty {
+    <span>Empty list of users</span>
+    }
+</div>
+</div>
+<!-- <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Product name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Category
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    description
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (product of allProductsList$; track product.id ) {
+            <tr
+                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                    {{product.title}}
+                </td>
+                <td class="px-6 py-4">
+                    {{product.price}}
+                </td>
+                <td class="px-6 py-4">
+                    {{product.category}}
+                </td>
+                <td class="px-6 py-4">
+                    {{product.description}}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            } @empty {
+            <span>Empty list of users</span>
+            }
+        </tbody>
+    </table>
+</div> -->

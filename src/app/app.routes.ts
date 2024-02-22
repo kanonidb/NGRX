@@ -6,6 +6,8 @@ import {LoginComponent} from './auth/components/login/login.component';
 import {PagenotfoundComponent} from './globalfeed/pagenotfound/pagenotfound.component';
 import { SignupComponent } from './auth/components/signup/signup.component';
 import { LayoutComponent } from './layout/layout/layout.component';
+import { ProductComponent } from './core-components/product/product.component';
+import { CardComponent } from './core-components/card/card.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -13,9 +15,13 @@ export const routes: Routes = [
   {path: 'signup', component: SignupComponent, title: 'Signup'},
   {path: '', component: LayoutComponent, 
   children:[
-    {path: 'home', component: HomeComponent, title: 'Home'},
+    {path: 'home', 
+    loadComponent:()=> import('./core-components/home/home.component').then(a => a.HomeComponent), title: 'Home'},
     {path: 'about', component: AboutComponent, title: 'About'},
     {path: 'contact', component: ContactComponent, title: 'Contact'},
+    {path: 'product', component: ProductComponent, title: 'Product'},
+    {path: 'card', component: CardComponent, title: 'Card'},
+
   ]
   },
   {path: '**', component: PagenotfoundComponent, title: 'Page not found'},
